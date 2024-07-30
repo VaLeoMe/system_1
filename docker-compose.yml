@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  system_1:
+    image: <DOCKER-HUB-USERNAME>/system_1:tag
+    secrets:
+      - http_provider
+      - private_key
+      - metamask_password
+    environment:
+      HTTP_PROVIDER_FILE: /run/secrets/http_provider
+      PRIVATE_KEY_FILE: /run/secrets/private_key
+      METAMASK_PASSWORD_FILE: /run/secrets/metamask_password
+
+secrets:
+  http_provider:
+    external: true
+  private_key:
+    external: true
+  metamask_password:
+    external: true
